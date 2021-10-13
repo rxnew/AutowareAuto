@@ -2,16 +2,22 @@
 # and remote update (Over The Air update) to real cars.
 # If you have any additional questions, please contact us at #tier4-dev channel.
 
+version: 2
+
 services:
   planning_simulator_v2:
-    type: roslaunch
-    package_name: scenario_test_runner_launch
-    file_name: autoware_auto.launch.py
-    params:
-      map_path: "${map_path}"
-      lanelet2_map_file: lanelet2_map.osm
-      pointcloud_map_file: pointcloud_map.pcd/pointcloud_map.pcd
-      vehicle_model: lexus
-      sensor_model: aip_xx1
-      scenario_simulation: "true"
-      architecture_type: awf/auto
+    components:
+      planning:
+        type: roslaunch
+        package_name: scenario_test_runner_launch
+        file_name: autoware_auto_planning.launch.py
+        params:
+          vehicle_model: lexus
+          sensor_model: aip_xx1
+      perception:
+        type: roslaunch
+        package_name: scenario_test_runner_launch
+        file_name: autoware_auto_perception.launch.py
+        params:
+          vehicle_model: lexus
+          sensor_model: aip_xx1
