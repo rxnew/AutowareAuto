@@ -5,7 +5,7 @@
 version: 2
 
 services:
-  planning_simulator_v2:
+  planning_sim_v2:
     components:
       planning:
         type: roslaunch
@@ -14,6 +14,10 @@ services:
         params:
           vehicle_model: lexus
           sensor_model: aip_xx1
+        runtime:
+          type: component/standard1/arm64/medium
+          cpu: 4
+          memory: 8192
       perception:
         type: roslaunch
         package_name: scenario_test_runner_launch
@@ -21,3 +25,7 @@ services:
         params:
           vehicle_model: lexus
           sensor_model: aip_xx1
+        runtime:
+          type: component/standard1/arm64/medium
+          cpu: 4
+          memory: 8192
