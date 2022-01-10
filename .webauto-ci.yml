@@ -2,6 +2,14 @@
 
 version: 2
 
+artifacts:
+  - name: main
+    build:
+      type: awf/auto/main/arm64/v1
+  - name: planning_sim
+    build:
+      type: awf/auto/planning_sim/amd64/v2
+
 services:
   planning_sim_v2:
     components:
